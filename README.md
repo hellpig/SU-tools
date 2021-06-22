@@ -5,7 +5,7 @@ Many powerful tools for studying irreducible representations (irreps) of SU(n), 
 
 ## Functions
 
-See the top of su.py for how to import the following functions into Python 3!
+See the top of su.py for how to import the following functions into Python 3! The numpy and matplotlib modules are required.
 
 The following powerful functions study irreps of SU(n>1)...
  * suf(L)  - given an irrep, finds all weights and their individual dimensions
