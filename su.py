@@ -505,7 +505,7 @@ def suy(*argv):
   #    Y[], YY[], k1[], k2[], L[], r, inputs, Di
 
   ######## find irreps! ########
-  I = np.identity(r+1, dtype=int)
+  I = np.concatenate(( np.identity(r+1, dtype=int), np.identity(r+1, dtype=int), np.zeros((r+1, 1), dtype=int) ), axis=1)
   for N in range(1,inputs):
     if not np.any( L[N,:]!=0 ):
       rows=0
@@ -516,11 +516,13 @@ def suy(*argv):
 
         # add blocks
         for j in range(Y[N,i]):   # all columns of current row
-            temp = np.array([], dtype=int).reshape(0,YY.shape[1])
+            temp = np.zeros( (YY.shape[0]*(r+1), YY.shape[1]), dtype=int)
+            count = 0
             for k in range(YY.shape[0]):   # all prior Young diagrams
                 for l in np.argwhere( np.diff( np.concatenate(([-1],YY[k,k1])) ) != 0 )[:,0]:  # all rows of a Young diagram that can accept another block
-                    temp = np.concatenate(( temp, np.concatenate(( YY[k,k1]+I[l,:], YY[k,k2]+I[l,:], [YY[k,-1]] )).reshape(1,-1) ), axis=0)
-            YY = np.unique(temp, axis=0)   # remove repeated diagrams then update YY
+                    temp[count, :] = YY[k,:] + I[l,:]
+                    count += 1
+            YY = np.unique(temp[0:count, :], axis=0)   # remove repeated diagrams then update YY
 
         # remove diagrams with multiple entries in the same column
         d = []  # rows of YY to be deleted
