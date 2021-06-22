@@ -23,6 +23,7 @@ The following function uses suw()...
 The following function studies hadrons...
  * hadrons(string)  - creates animations of flavor-state multiplets for hadrons!
 
+More documentation is found for each function in su.py.
 
 
 
