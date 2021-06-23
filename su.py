@@ -3,11 +3,13 @@
 # import this Python-3 file via:
 #   from su import *
 #
-# reload via:
-#   from importlib import reload
-#   import su
-#   reload(su)
-#   from su import *
+# After making changes to this file, reload via:
+"""
+from importlib import reload
+import su
+reload(su)
+from su import *
+"""
 # Only the last two lines need to be run if reloading the next time
 #
 # (c) 2021 Bradley Knockel
@@ -620,10 +622,10 @@ def hadrons(string):
 
       def animate(frame):
           for k in h:
-              k.view_init(e, frame % 360)
+              k.view_init(e, frame)
           return h
 
-      _ = animation.FuncAnimation(fig, animate, frames=360000000, interval=delay, blit=True)
+      _ = animation.FuncAnimation(fig, animate, frames=360, interval=delay, blit=True, repeat = True)
       plt.show()
 
 
