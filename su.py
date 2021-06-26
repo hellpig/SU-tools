@@ -625,7 +625,7 @@ def hadrons(string):
               k.view_init(e, frame)
           return h
 
-      _ = animation.FuncAnimation(fig, animate, frames=360, interval=delay, blit=True, repeat = True)
+      _ = animation.FuncAnimation(fig, animate, frames=360, interval=delay, repeat = True)
       plt.show()
 
 
