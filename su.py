@@ -23,6 +23,16 @@ from matplotlib import animation
 
 
 
+# To get hadrons()'s animate() to work...
+#   blit = True is needed for my macOS
+#   blit = False is needed for my Windows and Linux
+#       (and it does not require animate() to return anything)
+
+blitSetting = False
+
+
+
+
 def suw(L):
 # Finds dimension of irreducible representations of SU(n>1) using Weyl
 # dimension formula. That is, this code finds the dimension of the space
@@ -617,15 +627,15 @@ def hadrons(string):
   def had(fig, h):
   # to make the video
 
-      e=15        # elevation in degrees
-      delay = 1   # per frame (in milliseconds)
+      e = 15       # elevation in degrees
+      delay = 10   # per frame (in milliseconds)
 
       def animate(frame):
           for k in h:
               k.view_init(e, frame)
           return h
 
-      _ = animation.FuncAnimation(fig, animate, frames=360, interval=delay, repeat = True)
+      _ = animation.FuncAnimation(fig, animate, frames=360, interval=delay, blit = blitSetting, repeat = True)
       plt.show()
 
 
