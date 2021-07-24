@@ -87,6 +87,5 @@ Hadron facts...
  * If you find bugs or have questions, leave me a message at [www.BradleyKnockel.com](https://www.bradleyknockel.com)
  * This code is under the MIT license, so you can mostly do what you want with it (if you distribute the code or a modified version of the code, just make sure you give credit to me, Bradley Knockel)
  * Many thanks to Dr. Daniel Finley!
- * Keywords: Freudenthal's formula, group theory, irreducible representations, irreps, Lie algebra, Lie group, matrix representations, representation theory, special unitary group, SU(2), SU(3), SU(4), SU(5), SU(n), Weyl dimension formula, Young diagrams, Young tableau
  * I thought about trying to speed up suy() by removing repeated Young diagrams then adding an extra column in YY\[\] to store how many of that diagram there are, but this approach may not even speed things up, and I don't greatly care about speed (if I did, this code would be written in C)!
 
