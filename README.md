@@ -2,6 +2,7 @@
 
 Many powerful tools for studying irreducible representations (irreps) of SU(n), including making animations of hadron flavor-state multiplets.
 
+![sample image](screenshot.png)
 
 
 ## Functions
